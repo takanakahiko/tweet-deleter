@@ -1,0 +1,22 @@
+version: 2
+jobs:
+  batch_process: # 重いテスト
+    docker:
+      - image: node:8
+    steps:
+      - checkout
+      - run: npm i
+      - run: npm run heavy_test
+
+workflows:
+  version: 2
+  nightly_workflow:
+    triggers:
+      - schedule:
+          cron: "0 15 * * *" # UTC0時
+          filters:
+            branches:
+              only:
+                - master
+    jobs:
+      - batch_process

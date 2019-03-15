@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "description": "my peachy project",
   "scripts": {
-    "lint": "xo",
-    "dev": "nodemon --exec ts-node src/index.ts"
+    "lint": "tslint ./src/**/*.ts --fix",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "ts-node src/index.ts"
   },
   "repository": {
     "url": "takanakahiko/tweet-deleter",
@@ -13,37 +14,16 @@
   "author": "takanakahiko<takanakahiko@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "xo": "^0.23.0",
-    "prettier": "^1.15.2",
-    "eslint-config-rem": "^4.0.0",
-    "eslint-config-prettier": "^3.3.0",
-    "eslint-plugin-prettier": "^3.0.0",
-    "eslint-config-xo-typescript": "^0.3.0",
-    "eslint-plugin-typescript": "^0.14.0",
-    "typescript-eslint-parser": "^21.0.2",
+    "@types/twit": "^2.2.21",
     "husky": "^1.2.0",
     "lint-staged": "^8.1.0",
     "nodemon": "^1.18.7",
+    "prettier": "^1.15.2",
     "ts-node": "^7.0.1",
-    "typescript": "^3.1.4"
-  },
-  "xo": {
-    "extends": [
-      "rem",
-      "plugin:prettier/recommended",
-      "xo-typescript"
-    ],
-    "extensions": [
-      "ts"
-    ],
-    "rules": {
-      "unicorn/filename-case": "off",
-      "new-cap": "off",
-      "typescript/no-inferrable-types": "off",
-      "import/no-unassigned-import": "off",
-      "typescript/explicit-function-return-type": "off",
-      "no-throw-literal": "off"
-    }
+    "tslint": "^5.14.0",
+    "twitter-d": "^0.2.1",
+    "typescript": "^3.1.4",
+    "typescript-eslint-parser": "^21.0.2"
   },
   "husky": {
     "hooks": {
@@ -53,13 +33,13 @@
   "lint-staged": {
     "linters": {
       "*.{ts,js}": [
-        "xo --fix",
-        "git add"
-      ],
-      "*.{json,md}": [
-        "prettier --write",
+        "tslint --fix",
         "git add"
       ]
     }
+  },
+  "dependencies": {
+    "big-integer": "^1.6.42",
+    "twit": "^2.2.11"
   }
 }
