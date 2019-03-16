@@ -9,10 +9,10 @@ import TwitterUtil from './twitter-util'
     const now = new Date()
     const tokyoTimezoneOffset = -540 * 1000 * 60
     const yesterday0oclock = new Date(
-      now.valueOf() -
-        (now.valueOf() % 86400000) -
-        86400000 +
-        tokyoTimezoneOffset,
+      now.valueOf()
+      - (now.valueOf() % 86400000)
+      - 86400000
+      + tokyoTimezoneOffset,
     )
 
     const { exceptionIds } = settings()
@@ -27,12 +27,8 @@ import TwitterUtil from './twitter-util'
       await twitter.destroy(status.id_str)
     }
 
-    const completeMessage = `【BOT】 ${
-      statusesToDelete.length
-    }個のツイートを削除しました。(TweetDeleter : ${new Date()}`
-    await twitter.tweet(completeMessage)
+    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました。(TweetDeleter : ${new Date()}`)
   } catch (error) {
-    const errorMessage = `【BOT】 エラーが発生しました: ${error} (TweetDeleter)`
-    await twitter.tweet(errorMessage)
+    await twitter.tweet(`【BOT】 エラーが発生しました: ${error} (TweetDeleter)`)
   }
 })()
