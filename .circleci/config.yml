@@ -13,7 +13,7 @@ jobs:
     steps:
       - checkout
       - run: npm i
-      - run: npm run heavy_test
+      - run: npm run start
 
 workflows:
   version: 2
