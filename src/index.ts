@@ -2,6 +2,7 @@ import { settings } from './settings'
 import TwitterUtil from './twitter-util'
 
 (async () => {
+  const repoUrl = 'https://github.com/takanakahiko/tweet-deleter'
   const twitter = new TwitterUtil()
   try {
     const statuses = await twitter.getAllTweets()
@@ -27,8 +28,8 @@ import TwitterUtil from './twitter-util'
       await twitter.destroy(status.id_str)
     }
 
-    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました。(TweetDeleter : ${new Date()}`)
+    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました\n${repoUrl}`)
   } catch (error) {
-    await twitter.tweet(`【BOT】 エラーが発生しました: ${error} (TweetDeleter)`)
+    await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
   }
 })()
