@@ -24,12 +24,18 @@ import TwitterUtil from './twitter-util'
       return true
     })
 
+    let count = 0
     for (const status of statusesToDelete) {
-      await twitter.destroy(status.id_str)
+      const ret = await twitter.isIkinari(status.id_str)
+      if (!ret) {
+        await twitter.destroy(status.id_str)
+        count++
+      }
     }
 
-    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました\n${repoUrl}`)
+    await twitter.tweet(`【BOT】 ${count}個のツイートを削除しました\n${repoUrl}`)
   } catch (error) {
+    console.log(error)
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
   }
 })()

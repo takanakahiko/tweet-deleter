@@ -47,4 +47,31 @@ export default class TwitterUtil {
     }
     await this.twitter.post('statuses/destroy/:id', payload)
   }
+
+  public async show(id: string): Promise<Status> {
+    const payload = {
+      id,
+    }
+    const ret = await this.twitter.get('statuses/show/:id', payload)
+    return ret.data as Status
+  }
+
+  // いきなりステーキの反対語選手権関連のツイートであるか判定します
+  public async isIkinari(id: string): Promise<boolean> {
+    let status: Status
+    while (true) {
+      if (id === '1130812094855749632') { return true }
+      try {
+        status = await this.show(id)
+      } catch (error) {
+        const errorStr = error.toString() as string
+        if (errorStr.includes('Rate limit')) { throw new Error('Rate limit exceeded') }
+        break
+      }
+      if (!status.in_reply_to_status_id_str) { break }
+      id = status.in_reply_to_status_id_str
+    }
+    return false
+  }
+
 }
