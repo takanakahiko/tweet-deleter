@@ -111,3 +111,5 @@ typings/
 
 #DynamoDB Local files
 .dynamodb/
+
+.envrc
