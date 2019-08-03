@@ -58,18 +58,27 @@ export default class TwitterUtil {
 
   // いきなりステーキの反対語選手権関連のツイートであるか判定します
   public async isIkinari(id: string): Promise<boolean> {
-    let status: Status
+    return this.isInTree(id, '1130812094855749632')
+  }
+
+  // ことばパレット関連のツイートであるか判定します
+  public async isKotoba(id: string): Promise<boolean> {
+    return this.isInTree(id, '1156837082205081600')
+  }
+
+  private async isInTree(id: string, rootId: string) {
+    let seek = id
     while (true) {
-      if (id === '1130812094855749632') { return true }
+      if (seek === rootId) { return true }
       try {
-        status = await this.show(id)
+        const status = await this.show(seek)
+        if (!status.in_reply_to_status_id_str) { break }
+        seek = status.in_reply_to_status_id_str
       } catch (error) {
         const errorStr = error.toString() as string
         if (errorStr.includes('Rate limit')) { throw new Error('Rate limit exceeded') }
         break
       }
-      if (!status.in_reply_to_status_id_str) { break }
-      id = status.in_reply_to_status_id_str
     }
     return false
   }

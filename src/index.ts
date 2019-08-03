@@ -26,8 +26,9 @@ import TwitterUtil from './twitter-util'
 
     let count = 0
     for (const status of statusesToDelete) {
-      const ret = await twitter.isIkinari(status.id_str)
-      if (!ret) {
+      const isIkinari = await twitter.isIkinari(status.id_str)
+      const isKotoba = await twitter.isKotoba(status.id_str)
+      if (!isIkinari && !isKotoba) {
         await twitter.destroy(status.id_str)
         count++
       }
