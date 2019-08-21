@@ -26,9 +26,13 @@ import TwitterUtil from './twitter-util'
 
     let count = 0
     for (const status of statusesToDelete) {
-      const isIkinari = await twitter.isIkinari(status.id_str)
-      const isKotoba = await twitter.isKotoba(status.id_str)
-      if (!isIkinari && !isKotoba) {
+      const rootIds = [
+        '1130812094855749632', // いきなりステーキの反対語選手権
+        '1156837082205081600', // ことばパレット
+        '1163294213032665093', // 就活完了
+      ]
+      const isKeep = await twitter.isInTree(status.id_str, rootIds)
+      if (!isKeep) {
         await twitter.destroy(status.id_str)
         count++
       }

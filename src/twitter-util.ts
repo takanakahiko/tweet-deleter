@@ -56,20 +56,10 @@ export default class TwitterUtil {
     return ret.data as Status
   }
 
-  // いきなりステーキの反対語選手権関連のツイートであるか判定します
-  public async isIkinari(id: string): Promise<boolean> {
-    return this.isInTree(id, '1130812094855749632')
-  }
-
-  // ことばパレット関連のツイートであるか判定します
-  public async isKotoba(id: string): Promise<boolean> {
-    return this.isInTree(id, '1156837082205081600')
-  }
-
-  private async isInTree(id: string, rootId: string) {
+  public async isInTree(id: string, rootIds: string[]) {
     let seek = id
     while (true) {
-      if (seek === rootId) { return true }
+      if ( rootIds.includes(seek) ) { return true }
       try {
         const status = await this.show(seek)
         if (!status.in_reply_to_status_id_str) { break }
