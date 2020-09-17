@@ -11,4 +11,4 @@ jobs:
     - uses: actions/checkout@v2
     - run: |
         npm ci
-        pm run start
+        npm run start
