@@ -1,7 +1,7 @@
 import { settings } from './settings'
 import TwitterUtil from './twitter-util'
 
-(async () => {
+const main = async () => {
   const repoUrl = 'https://github.com/takanakahiko/tweet-deleter'
   const twitter = new TwitterUtil()
   try {
@@ -43,5 +43,8 @@ import TwitterUtil from './twitter-util'
   } catch (error) {
     console.log(error)
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
+    throw error
   }
-})()
+}
+
+main()
