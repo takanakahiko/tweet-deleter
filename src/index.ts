@@ -24,21 +24,22 @@ import TwitterUtil from './twitter-util'
       return true
     })
 
-    let count = 0
+    // let count = 0
+    // for (const status of statusesToDelete) {
+    //   const rootIds = [
+    //   ]
+    //   const isKeep = await twitter.isInTree(status.id_str, rootIds)
+    //   if (!isKeep) {
+    //     await twitter.destroy(status.id_str)
+    //     count++
+    //   }
+    // }
+
     for (const status of statusesToDelete) {
-      const rootIds = [
-        '1130812094855749632', // いきなりステーキの反対語選手権
-        '1156837082205081600', // ことばパレット
-        '1163294213032665093', // 就活完了
-      ]
-      const isKeep = await twitter.isInTree(status.id_str, rootIds)
-      if (!isKeep) {
-        await twitter.destroy(status.id_str)
-        count++
-      }
+      await twitter.destroy(status.id_str)
     }
 
-    await twitter.tweet(`【BOT】 ${count}個のツイートを削除しました\n${repoUrl}`)
+    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました\n${repoUrl}`)
   } catch (error) {
     console.log(error)
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
