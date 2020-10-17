@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: '0 15 * * *' # UTC0時
 
+env:
+  CONSUMER_KEY: ${{ secrets.CONSUMER_KEY }}
+  CONSUMER_SECRET: ${{ secrets.CONSUMER_SECRET }}
+  ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+  ACCESS_TOKEN_SECRET: ${{ secrets.ACCESS_TOKEN_SECRET }}
+
 jobs:
   delete-tweets:
     runs-on: ubuntu-latest
