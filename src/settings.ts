@@ -1,17 +1,12 @@
-interface Setting {
-  consumerKey: string
-  consumerSecret: string
-  accessToken: string
-  accessTokenSecret: string
-  exceptionIds: string[]
-}
-
-export function settings(): Setting {
+export function settings() {
   return {
     consumerKey: process.env.CONSUMER_KEY || '',
     consumerSecret: process.env.CONSUMER_SECRET || '',
     accessToken: process.env.ACCESS_TOKEN || '',
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET || '',
+    keepTags: [
+      '楓推し', 'keep',
+    ],
     exceptionIds: [
       '825373820512899074',
       '1013765942952669185',

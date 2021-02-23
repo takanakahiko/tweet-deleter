@@ -16,10 +16,15 @@ const main = async () => {
       + tokyoTimezoneOffset,
     )
 
-    const { exceptionIds } = settings()
+    const { exceptionIds, keepTags } = settings()
 
     const statusesToDelete = statuses.filter((status) => {
       if (exceptionIds.includes(status.id_str)) { return false }
+      if ( status.entities.hashtags ) {
+        for ( const tag of status.entities.hashtags ) {
+          if (keepTags.includes(tag.text)) { return false }
+        }
+      }
       if (new Date(status.created_at) > yesterday0oclock) { return false }
       return true
     })
