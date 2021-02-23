@@ -22,7 +22,7 @@ export default class TwitterUtil {
       trim_user: true,
       tweet_mode: 'extended',
     }
-    while (true) {
+    for (;;) {
       const ret = await this.twitter.get('statuses/user_timeline', payload)
       const statuses = ret.data as Status[]
       if (statuses.length === 0) { break }
@@ -56,9 +56,9 @@ export default class TwitterUtil {
     return ret.data as Status
   }
 
-  public async isInTree(id: string, rootIds: string[]) {
+  public async isInTree(id: string, rootIds: string[]): Promise<boolean> {
     let seek = id
-    while (true) {
+    for (;;) {
       if ( rootIds.includes(seek) ) { return true }
       try {
         const status = await this.show(seek)

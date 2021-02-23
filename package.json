@@ -3,8 +3,7 @@
   "version": "0.0.0",
   "description": "my peachy project",
   "scripts": {
-    "lint": "tslint ./src/**/*.ts",
-    "dev": "nodemon --exec ts-node src/index.ts",
+    "lint": "eslint . --ext .ts",
     "start": "ts-node src/index.ts"
   },
   "repository": {
@@ -16,6 +15,9 @@
   "devDependencies": {
     "@types/node": "^14.14.31",
     "@types/twit": "^2.2.21",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
+    "eslint": "^7.20.0",
     "ts-node": "^7.0.1",
     "twitter-d": "^0.2.1",
     "typescript": "^3.1.4"

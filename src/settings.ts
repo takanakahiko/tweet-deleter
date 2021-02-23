@@ -1,4 +1,13 @@
-export function settings() {
+interface Setting {
+  consumerKey: string
+  consumerSecret: string
+  accessToken: string
+  accessTokenSecret: string
+  keepTags: string[]
+  exceptionIds: string[]
+}
+
+export function settings(): Setting {
   return {
     consumerKey: process.env.CONSUMER_KEY || '',
     consumerSecret: process.env.CONSUMER_SECRET || '',
