@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@master
       - run: npm ci
       - run: npm run lint
-  build:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
