@@ -5,6 +5,7 @@ interface Setting {
   accessTokenSecret: string
   keepTags: string[]
   exceptionIds: string[]
+  keepTexts: RegExp[]
 }
 
 export function settings(): Setting {
@@ -85,5 +86,6 @@ export function settings(): Setting {
       '1397914686469771267',
       '1398472587819159558',
     ],
+    keepTexts: [/なかひこくん㊙️情報/],
   }
 }
