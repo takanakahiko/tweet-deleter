@@ -18,12 +18,11 @@ $ npm i
 $ npm run start
 ```
 
-## Usage (CircleCI)
+## Usage (GitHub Actions)
 
-1. fork and
-2. Set-up CircleCI
-3. Set `Environment Variables` ( CONSUMER_KEY / CONSUMER_SECRET / ACCESS_TOKEN / ACCESS_TOKEN_SECRET)
-4. Automatically run at 0 o'clock Japan time ( GMT+09:00 )
+1. fork
+2. Set `Secrets` on Repository ( CONSUMER_KEY / CONSUMER_SECRET / ACCESS_TOKEN / ACCESS_TOKEN_SECRET)
+3. Automatically run at 0 o'clock Japan time ( GMT+09:00 )
 
 ## License
 
