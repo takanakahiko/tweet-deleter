@@ -1,5 +1,27 @@
-import { settings } from './settings'
+import { settings, Setting } from './settings'
 import TwitterUtil from './twitter-util'
+
+export interface Status {
+  id_str: string,
+  full_text: string,
+  entities: {
+    hashtags?: { text:string }[] | null
+  },
+  created_at: string
+}
+
+export const is消したい = (status: Status, setting: Setting, boundaryDate: Date): boolean => {
+  const { exceptionIds, keepTags, keepTexts } = setting
+  if (exceptionIds.includes(status.id_str)) { return false }
+  if (keepTexts.some((keepText) => keepText.test(status.full_text))) { return false }
+  if ( status.entities.hashtags ) {
+    for ( const tag of status.entities.hashtags ) {
+      if (keepTags.includes(tag.text)) { return false }
+    }
+  }
+  if (new Date(status.created_at) > boundaryDate) { return false }
+  return true
+}
 
 const main = async () => {
   const repoUrl = 'https://github.com/takanakahiko/tweet-deleter'
@@ -8,7 +30,7 @@ const main = async () => {
     const statuses = await twitter.getAllTweets()
 
     const now = new Date()
-    const tokyoTimezoneOffset = -540 * 1000 * 60
+    const tokyoTimezoneOffset = -9 * 1000 * 60 * 60
     const yesterday0oclock = new Date(
       now.valueOf()
       - (now.valueOf() % 86400000)
@@ -16,30 +38,11 @@ const main = async () => {
       + tokyoTimezoneOffset,
     )
 
-    const { exceptionIds, keepTags, keepTexts } = settings()
+    const setting = settings()
 
     const statusesToDelete = statuses.filter((status) => {
-      if (exceptionIds.includes(status.id_str)) { return false }
-      if (keepTexts.some((keepText) => keepText.test(status.full_text))) { return false }
-      if ( status.entities.hashtags ) {
-        for ( const tag of status.entities.hashtags ) {
-          if (keepTags.includes(tag.text)) { return false }
-        }
-      }
-      if (new Date(status.created_at) > yesterday0oclock) { return false }
-      return true
+      return is消したい(status, setting, yesterday0oclock)
     })
-
-    // let count = 0
-    // for (const status of statusesToDelete) {
-    //   const rootIds = [
-    //   ]
-    //   const isKeep = await twitter.isInTree(status.id_str, rootIds)
-    //   if (!isKeep) {
-    //     await twitter.destroy(status.id_str)
-    //     count++
-    //   }
-    // }
 
     for (const status of statusesToDelete) {
       await twitter.destroy(status.id_str)
@@ -53,4 +56,6 @@ const main = async () => {
   }
 }
 
-main()
+if (require.main === module) {
+  main()
+}

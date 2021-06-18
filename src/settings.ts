@@ -1,4 +1,4 @@
-interface Setting {
+export interface Setting {
   consumerKey: string
   consumerSecret: string
   accessToken: string
