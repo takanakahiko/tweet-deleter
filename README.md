@@ -9,11 +9,21 @@ Delete your 2 or more days ago tweets Automatically.
 fork and clone and ...
 
 ```bash
+$ cp _env .env
+```
+
+or
+
+```bash
 $ export CONSUMER_KEY=XXXXXXXXXXXX
 $ export CONSUMER_SECRET=YYYYYYYYYYYYYYYYYY
 $ export ACCESS_TOKEN=ZZZZZZZZZZZZZZZZZZZZZZZZ
 $ export ACCESS_TOKEN_SECRET=HOGEEEEEEEEEEEEEEEEEEEEEE
+```
 
+and
+
+```bash
 $ npm i
 $ npm run start
 ```

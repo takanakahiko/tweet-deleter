@@ -1,3 +1,4 @@
+import { loadEnv } from "./dotenv"
 export interface Setting {
   consumerKey: string
   consumerSecret: string
@@ -9,6 +10,7 @@ export interface Setting {
 }
 
 export function settings(): Setting {
+  loadEnv();
   return {
     consumerKey: process.env.CONSUMER_KEY || '',
     consumerSecret: process.env.CONSUMER_SECRET || '',
