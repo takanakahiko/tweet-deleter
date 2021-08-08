@@ -1,0 +1,21 @@
+{
+  "name": "tweet-deleter",
+  "description": "Delete your 2 or more days ago tweets Automatically.",
+  "repository": "https://github.com/takanakahiko/tweet-deleter",
+  "scripts": {},
+  "env": {
+    "NPM_CONFIG_PRODUCTION": "false",
+    "CONSUMER_KEY": "",
+    "CONSUMER_SECRET": "",
+    "ACCESS_TOKEN": "",
+    "ACCESS_TOKEN_SECRET": ""
+  },
+  "formation": {},
+  "addons": [],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ],
+  "stack": "heroku-20"
+}
