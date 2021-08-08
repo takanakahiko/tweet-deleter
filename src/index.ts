@@ -5,7 +5,7 @@ export interface Status {
   id_str: string,
   full_text: string,
   entities: {
-    hashtags?: { text:string }[] | null
+    hashtags?: { text: string }[] | null
   },
   created_at: string
 }
