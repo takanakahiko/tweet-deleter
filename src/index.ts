@@ -53,6 +53,8 @@ const main = async () => {
     console.log(error)
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
     throw error
+  } finally {
+    process.exit();
   }
 }
 
