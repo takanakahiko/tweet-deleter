@@ -30,6 +30,10 @@ $ npm i
 $ npm run start
 ```
 
+## Usage  (Heroku)
+1. push [Deploy to] button on top of this page
+2. Set `Secrets` on Deploy View ( CONSUMER_KEY / CONSUMER_SECRET / ACCESS_TOKEN / ACCESS_TOKEN_SECRET)
+3. Set Heroku Scheduler. recommend once a day at 0 oclock.
 ## Usage (GitHub Actions)
 
 1. fork

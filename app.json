@@ -17,7 +17,9 @@
     }
   },
   "formation": {},
-  "addons": [],
+  "addons": [
+    "scheduler"
+  ],
   "buildpacks": [
     {
       "url": "heroku/nodejs"
