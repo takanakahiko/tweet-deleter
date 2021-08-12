@@ -17,7 +17,10 @@ export function settings(): Setting {
     accessToken: process.env.ACCESS_TOKEN || "",
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET || "",
     keepTags: ["Zenn", "keep", "朝活"],
-    exceptionIds: ["1424563468443602945"],
+    exceptionIds: [
+      "1424563468443602945",
+      "1424563468443602945"
+    ],
     keepTexts: [/Slack/, /Bolt/, /Notion/, /海砂利水魚/],
   };
 }
