@@ -31,9 +31,14 @@ $ npm run start
 ```
 
 ## Usage  (Heroku)
+
 1. push [Deploy to] button on top of this page
 2. Set `Secrets` on Deploy View ( CONSUMER_KEY / CONSUMER_SECRET / ACCESS_TOKEN / ACCESS_TOKEN_SECRET)
-3. Set Heroku Scheduler. recommend once a day at 0 oclock.
+3. Set Heroku Scheduler. recommend once a day at 0 oclock. like a this
+
+[![Image from Gyazo](https://i.gyazo.com/23ac5cbfd85f96a90e582d4798aec5df.png)](https://gyazo.com/23ac5cbfd85f96a90e582d4798aec5df)
+
+
 ## Usage (GitHub Actions)
 
 1. fork

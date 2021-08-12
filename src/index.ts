@@ -48,13 +48,13 @@ const main = async () => {
       await twitter.destroy(status.id_str)
     }
 
-    await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました\n${repoUrl}`)
+    if (statusesToDelete.length) await twitter.tweet(`【BOT】 ${statusesToDelete.length}個のツイートを削除しました\n${repoUrl}`)
   } catch (error) {
     console.log(error)
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
     throw error
   } finally {
-    process.exit();
+    process.exitCode = 0;
   }
 }
 
