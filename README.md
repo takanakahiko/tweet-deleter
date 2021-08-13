@@ -1,6 +1,6 @@
 # tweet-deleter
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/75asa/tweet-deleter/tree/master)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/takanakahiko/tweet-deleter/tree/master)
 
 ## Whats this?
 

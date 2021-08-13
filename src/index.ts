@@ -54,7 +54,7 @@ const main = async () => {
     await twitter.tweet(`【BOT】 エラーが発生しました: ${error}`)
     throw error
   } finally {
-    process.exitCode = 0;
+    process.exit();
   }
 }
 
