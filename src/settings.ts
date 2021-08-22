@@ -1,3 +1,4 @@
+import { loadEnv } from "./dotenv"
 export interface Setting {
   consumerKey: string
   consumerSecret: string
@@ -9,13 +10,14 @@ export interface Setting {
 }
 
 export function settings(): Setting {
+  loadEnv();
   return {
     consumerKey: process.env.CONSUMER_KEY || '',
     consumerSecret: process.env.CONSUMER_SECRET || '',
     accessToken: process.env.ACCESS_TOKEN || '',
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET || '',
     keepTags: [
-      '楓推し', 'keep',　'なかひこごはん',
+      '楓推し', 'keep', 'なかひこごはん',
     ],
     exceptionIds: [
       '825373820512899074',
