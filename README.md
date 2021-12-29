@@ -38,13 +38,6 @@ $ npm run start
 
 [![Image from Gyazo](https://i.gyazo.com/23ac5cbfd85f96a90e582d4798aec5df.png)](https://gyazo.com/23ac5cbfd85f96a90e582d4798aec5df)
 
-
-## Usage (GitHub Actions)
-
-1. fork
-2. Set `Secrets` on Repository ( CONSUMER_KEY / CONSUMER_SECRET / ACCESS_TOKEN / ACCESS_TOKEN_SECRET)
-3. Automatically run at 0 o'clock Japan time ( GMT+09:00 )
-
 ## License
 
 MIT &copy; takanakahiko
