@@ -106,6 +106,7 @@ export function settings(): Setting {
     keepTexts: [
       /なかひこくん㊙️情報/,
       /エンジニアはモテます、俺もモテすぎて困っちゃうぜ/,
+      /誕生日/,
     ],
   }
 }
