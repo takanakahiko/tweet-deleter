@@ -1,3 +1,7 @@
+<p align="center">
+<img width="586" alt="image" src="https://user-images.githubusercontent.com/10114717/158940203-8cf44143-a643-48e2-8ff6-47d7c3bec80c.png">
+</p>
+
 # tweet-deleter
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/takanakahiko/tweet-deleter/tree/master)
