@@ -5,7 +5,8 @@
   "scripts": {
     "lint": "eslint . --ext .ts",
     "start": "ts-node src/index.ts",
-    "test": "testyts"
+    "test": "testyts",
+    "osouji": "ts-node src/scripts/osouji.ts"
   },
   "repository": {
     "url": "takanakahiko/tweet-deleter",
