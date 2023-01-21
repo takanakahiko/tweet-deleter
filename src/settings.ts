@@ -17,7 +17,7 @@ export function settings(): Setting {
     accessToken: process.env.ACCESS_TOKEN || '',
     accessTokenSecret: process.env.ACCESS_TOKEN_SECRET || '',
     keepTags: [
-      '楓推し', 'keep', 'なかひこごはん',
+      '楓推し', 'keep', 'なかひこごはん','金使わなすぎ2023'
     ],
     exceptionIds: [
       '825373820512899074',
